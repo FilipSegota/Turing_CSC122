@@ -17,9 +17,13 @@ public class TuringMachineDriver {
     // Report the result
     public static void main(String[] args) throws IOException {
         TuringMachine machine;
-        Scanner file;
+        Scanner keyboard, file;
+        String filename;
 
-        file = new Scanner(new FileReader("TuringTest.txt"));
+        keyboard = new Scanner(System.in);
+        System.out.println("What is the name of the file?");
+        filename = keyboard.nextLine();
+        file = new Scanner(new FileReader(filename));
         machine = new TuringMachine(file);
         machine.run();
         System.out.println(machine.toString());
